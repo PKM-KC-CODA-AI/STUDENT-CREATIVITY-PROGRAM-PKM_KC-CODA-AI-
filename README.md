@@ -268,7 +268,7 @@ scp ~/codaai/models/yolov8n_mymodel18_lvl4.hef codaai@codaai.local:~/coda_ai/mod
 
 
 //////////LEVELS///////////////
-
+```
 cat > /local/workspace/hailo_model_zoo/hailo_model_zoo/hailo_model_zoo/cfg/alls/generic/27_lvl2.alls << 'EOF'
 normalization1 = normalization([0.0, 0.0, 0.0], [255.0, 255.0, 255.0])
 change_output_activation(conv42, sigmoid)
@@ -277,9 +277,10 @@ change_output_activation(conv63, sigmoid)
 nms_postprocess("../../postprocess_config/yolov8n_nms_config.json", meta_arch=yolov8, engine=cpu)
 allocator_param(width_splitter_defuse=disabled)
 EOF
-
+```
 
 ////1////
+```
 normalization1 = normalization([0.0, 0.0, 0.0], [255.0, 255.0, 255.0])
 change_output_activation(conv42, sigmoid)
 change_output_activation(conv53, sigmoid)
@@ -289,8 +290,10 @@ allocator_param(width_splitter_defuse=disabled)
 
 model_optimization_config(calibration, batch_size=8, calibset_size=512)
 model_optimization_flavor(optimization_level=1, compression_level=1)
+```
 
 ////2////
+```
 normalization1 = normalization([0.0, 0.0, 0.0], [255.0, 255.0, 255.0])
 change_output_activation(conv42, sigmoid)
 change_output_activation(conv53, sigmoid)
@@ -303,10 +306,11 @@ model_optimization_flavor(optimization_level=2, compression_level=1)
 model_optimization_config(checker_cfg, dataset_size=1024)
 model_optimization_config(checker_cfg, batch_size=1)
 post_quantization_optimization(finetune, policy=enabled, batch_size=4, dataset_size=1024)
-
+```
 
 
 //////3/////
+```
 normalization1 = normalization([0.0, 0.0, 0.0], [255.0, 255.0, 255.0])
 change_output_activation(conv42, sigmoid)
 change_output_activation(conv53, sigmoid)
@@ -320,11 +324,12 @@ model_optimization_flavor(optimization_level=3, compression_level=1)
 model_optimization_config(checker_cfg, dataset_size=1024)
 model_optimization_config(checker_cfg, batch_size=1)
 post_quantization_optimization(finetune, policy=enabled, batch_size=1, dataset_size=1024)
-
+```
 
 
 
 /////4/////
+```
 normalization1 = normalization([0.0, 0.0, 0.0], [255.0, 255.0, 255.0])
 change_output_activation(conv42, sigmoid)
 change_output_activation(conv53, sigmoid)
@@ -338,8 +343,10 @@ model_optimization_flavor(optimization_level=4, compression_level=1)
 model_optimization_config(checker_cfg, dataset_size=1024)
 model_optimization_config(checker_cfg, batch_size=1)
 post_quantization_optimization(finetune, policy=enabled, batch_size=1, dataset_size=1024)
-
+```
 ===========================================================================================================
+Example
+```
 cat > /local/workspace/hailo_model_zoo/hailo_model_zoo/hailo_model_zoo/cfg/alls/generic/28_lvl4.alls << 'EOF'
 normalization1 = normalization([0.0, 0.0, 0.0], [255.0, 255.0, 255.0])
 change_output_activation(conv42, sigmoid)
@@ -355,5 +362,5 @@ model_optimization_config(checker_cfg, dataset_size=1260)
 model_optimization_config(checker_cfg, batch_size=1)
 post_quantization_optimization(finetune, policy=enabled, batch_size=1, dataset_size=1260)
 EOF
-
+```
 
