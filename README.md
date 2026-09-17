@@ -25,7 +25,7 @@ in this program using oriented bounding box (OBB) to annotation
 after annotation you can do augmentation dataset or split dataset with
 
 80% train 20 validation
-
+```
 data_directory/
 ├── images/
 │   ├── class1/
@@ -42,7 +42,7 @@ data_directory/
 │       ├── image1.txt
 │       └── image2.txt
 └── classes.json
-
+```
 to inference (run) model using Hailo 8L you must quantize into format .hef (Hailo Executable Format)
 
 
